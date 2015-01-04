@@ -1,5 +1,6 @@
 # om-twitter
 
+* Contains a cannibalized TwitterClient Component from [BirdWatch](https://github.com/matthiasn/BirdWatch/tree/master/Clojure-Websockets/TwitterClient)
 
 ## Development
 
