@@ -1,20 +1,19 @@
 (ns twitterclient.http
   (:gen-class)
-  (:require
-    [clojure.string :as str]
-    [clojure.tools.logging :as log]
-    [twitter.api.streaming :as tas]
-    [twitter.oauth :as oauth]
-    [clj-time.core :as t]
-    [twitter.callbacks.handlers :as tch]
-    [clojure.core.async :as async :refer [>!! <! timeout go-loop]])
+  (:require [clojure.string :as str]
+            [clojure.tools.logging :as log]
+            [twitter.api.streaming :as tas]
+            [twitter.oauth :as oauth]
+            [clj-time.core :as t]
+            [twitter.callbacks.handlers :as tch]
+            [clojure.core.async :as async :refer [>!! <! timeout go-loop]])
   (:import (twitter.callbacks.protocols AsyncStreamingCallback)))
 
 (defn- creds [config] (oauth/make-oauth-creds (:consumer-key config) (:consumer-secret config)
                                               (:user-access-token config) (:user-access-token-secret config)))
 
 (defn- tweet-chunk-callback [chunk-chan]
-  (tas/AsyncStreamingCallback. #(>!! chunk-chan (str %2))
+  (AsyncStreamingCallback. #(>!! chunk-chan (str %2))
                                (comp println tch/response-return-everything)
                                tch/exception-print))
 

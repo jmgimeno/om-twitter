@@ -1,12 +1,11 @@
 (ns om-twitter.main
   (:gen-class)
-  (:require
-    [twitterclient.component :as tc]
-    [twitterreader.component :as tr]
-   [clojure.edn :as edn]
-   [clojure.tools.logging :as log]
-   [clj-pid.core :as pid]
-   [com.stuartsierra.component :as component]))
+  (:require  [twitterclient.component :as tc]
+             [twitterreader.component :as tr]
+             [clojure.edn :as edn]
+             [clojure.tools.logging :as log]
+             [clj-pid.core :as pid]
+             [com.stuartsierra.component :as component]))
 
 (def conf (edn/read-string (slurp "twitterconf.edn")))
 
