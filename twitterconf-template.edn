@@ -1,0 +1,14 @@
+
+{:consumer-key             ""
+ :consumer-secret          ""
+ :user-access-token        ""
+ :user-access-token-secret ""
+ :es-address               "http://127.0.0.1:9200"
+ :es-index                 "birdwatch"
+ :track                    "java,clojure,scala"
+ :tw-check-interval-sec    10
+ :tw-restart-wait          60
+ :pidfile-name             "twitterclient.pid"
+ :redis-host               "127.0.0.1"
+ :redis-port               6379
+ :inspect-port             8002}
